@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="38795" started-at="2022-06-12T18:53:52 IST" finished-at="2022-06-12T18:54:31 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="38795" started-at="2022-06-12T18:53:52 IST" finished-at="2022-06-12T18:54:31 IST">
+      <class name="StepDefinitions.GLogin">
+        <test-method status="PASS" signature="pageSetup()[pri:0, instance:StepDefinitions.GLogin@7276c8cd]" name="pageSetup" is-config="true" duration-ms="5216" started-at="2022-06-12T18:53:52 IST" finished-at="2022-06-12T18:53:57 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageSetup -->
+        <test-method status="PASS" signature="Glogin()[pri:0, instance:StepDefinitions.GLogin@7276c8cd]" name="Glogin" duration-ms="33157" started-at="2022-06-12T18:53:57 IST" finished-at="2022-06-12T18:54:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Glogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:StepDefinitions.GLogin@7276c8cd]" name="tearDown" is-config="true" duration-ms="340" started-at="2022-06-12T18:54:30 IST" finished-at="2022-06-12T18:54:31 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- StepDefinitions.GLogin -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
