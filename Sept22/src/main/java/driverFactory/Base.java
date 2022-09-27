@@ -8,10 +8,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import util.SStaken;
 
 public class Base {
 
@@ -21,7 +23,6 @@ public class Base {
 	public static Properties prop;
 
 	public static FileInputStream	fis;
-
 
 
 	public Base() {
@@ -46,7 +47,7 @@ public class Base {
 	}
 	
 	
-	@BeforeTest
+	@BeforeMethod
 
 	public static void setUp() {
 		
@@ -76,16 +77,18 @@ public class Base {
 		driver.get(prop.getProperty("url"));
 
 	}
+	
+	
+	
+	@AfterMethod
 
+	public void ssFailed(ITestResult result) throws IOException{
+		if (ITestResult.FAILURE==result.getStatus()) {
+			
+	SStaken.takeSS2209(driver, result.getName());
 
-	@AfterTest
-	public void closeBrowser() {
+		}
+		
 		driver.quit();
 	}
-
-
-
-
-}//	driver.manage().window().maximize();
-//	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//	driver.navigate().to("https://goinfinity.beyond360test.com/Account/Login");
+}

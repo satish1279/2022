@@ -2,15 +2,17 @@ package stepDefi2209;
 
 import java.io.IOException;
 
-import driveFactory.Base;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import driverFactory.Base;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.Login2209;
 
 public class PomLogin2209 extends Base {
-
-
+WebDriver driver;
 
 
 	@Given ("^User is on Login Page2209$")
@@ -20,6 +22,7 @@ public class PomLogin2209 extends Base {
 	}
 
 
+@Test
 	@When ("^User logged into app2209$")
 	public void usrCred2209() {
 		
@@ -27,6 +30,8 @@ public class PomLogin2209 extends Base {
 		login.LoginPg(prop.getProperty("Username"), prop.getProperty("Password"));
 	}	
 
+
+ 
 
 	/*@And ("^Clicks on Login button2209$")
 	public void butonLogin() throws InterruptedException {

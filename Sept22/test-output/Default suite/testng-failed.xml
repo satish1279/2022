@@ -5,9 +5,9 @@
     <classes>
       <class name="stepDefi2209.PomLogin2209">
         <methods>
+          <include name="ssFailed"/>
+          <include name="usrCred2209"/>
           <include name="setUp"/>
-          <include name="loginnPg2209"/>
-          <include name="closeBrowser"/>
         </methods>
       </class> <!-- stepDefi2209.PomLogin2209 -->
     </classes>

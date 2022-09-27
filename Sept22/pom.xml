@@ -8,19 +8,26 @@
 
 
 
+	<!-- ================= GIT TOKEN ========================== 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 -->
 
 	<properties>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<java.version>18</java.version>
 		<junit.version>4.13.1</junit.version>
 		<cucumber.version>6.9.0</cucumber.version>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
-		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.surefire.version>3.0.0-M7</maven.surefire.version>
 
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 
 
 		<dependency>
@@ -54,7 +61,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
+			<version>7.0.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -92,21 +99,15 @@
 			</plugin>
 
 
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+			<!-- plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
+				<version>3.3.0</version> <configuration> <addClasspath>true</addClasspath> 
+				</configuration> </plugin> -->
 
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.version}</version>
-
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFiles>testng.xml</suiteXmlFiles>
-					</suiteXmlFiles>
-				</configuration>
-			</plugin>
-
-
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId> 
+				<version>${maven.surefire.version}</version> <configuration> <suiteXmlFiles> 
+				<suiteXmlFiles>testng.xml</suiteXmlFiles> </suiteXmlFiles> </configuration> 
+				</plugin> -->
 
 		</plugins>
 

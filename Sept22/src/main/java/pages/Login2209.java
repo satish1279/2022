@@ -12,6 +12,7 @@ public class Login2209 extends Base{
 
  
 	//============== Background ============//
+	
 
 	@FindBy(xpath="//input[@name='username']")
 	WebElement uName;	
@@ -24,6 +25,7 @@ public class Login2209 extends Base{
 	@FindBy(css="#cred_sign_in_button")
 	WebElement LoginButton;	
 
+	
 
 	public Login2209() {
 	PageFactory.initElements(driver, this);
@@ -34,6 +36,7 @@ public class Login2209 extends Base{
 		
 		uName.sendKeys(un);
 		pWord.sendKeys(pw);
+		
 		//LoginButton.click();
 		
 //		JavascriptExecutor js= (JavascriptExecutor)driver;
