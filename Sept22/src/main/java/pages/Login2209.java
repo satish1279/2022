@@ -37,10 +37,12 @@ public class Login2209 extends Base{
 		uName.sendKeys(un);
 		pWord.sendKeys(pw);
 		
-		//LoginButton.click();
+		LoginButton.click();
+		
 		
 //		JavascriptExecutor js= (JavascriptExecutor)driver;
 //		js.executeScript("arguments[0].click();", LoginButton);
+
 		return new Homepage2209();
 	}
 

@@ -10,7 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import util.SStaken;
@@ -22,7 +25,7 @@ public class Base {
 
 	public static Properties prop;
 
-	public static FileInputStream	fis;
+	public static FileInputStream fis;
 
 
 	public Base() {
@@ -30,13 +33,10 @@ public class Base {
 
 			prop = new Properties();
 
-
-			//String projectPath= System.getProperty("user.dir");
-
-
 				fis = new FileInputStream("./src/test/resources/Config/config.properties");
 
-			prop.load(fis);
+
+				prop.load(fis);
 
 		} 
 
@@ -74,11 +74,12 @@ public class Base {
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		driver.get(prop.getProperty("url"));
+		driver.navigate().to(prop.getProperty("url"));
 
 	}
 	
 	
+
 	
 	@AfterMethod
 

@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith (Cucumber.class)
 @CucumberOptions(
-		features="./src/test/resources/FeatureFiles/Login2209.feature",
+		features="./src/test/resources/FeatureFiles/Home2209.feature",
 		glue= {"stepDefi2209"},
 		monochrome=true,
 			
