@@ -70,7 +70,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
+			<version>7.0.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -103,23 +103,12 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.6.1</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-			<version>7.8.0</version>
-		</dependency>
-
-
 
 	</dependencies>
+
+
+
+
 
 	<build>
 		<plugins>
@@ -134,30 +123,28 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
+
+
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.version}</version>
-				
-			
-			
-			
-				<!-- ============IT IS FOR PARALLEL EXECUTION=========
-				
-				
+
+
 				<configuration>
-					<includes>
-						<include>**/ParallelRun.java</include>
-					</includes>
-				
-					<parallel>methods</parallel>
-					<threadCount>4</threadCount>
-					<useUnlimitedThreads>true</useUnlimitedThreads>
-				</configuration>	 -->
-				
-				
+					<suiteXmlFiles>
+						<suiteXmlFiles>testng.xml</suiteXmlFiles>
+					</suiteXmlFiles>
+				</configuration>
 			</plugin>
+
+			<!-- ============IT IS FOR PARALLEL EXECUTION========= <configuration> 
+				<includes> <include>**/ParallelRun.java</include> </includes> <parallel>methods</parallel> 
+				<threadCount>4</threadCount> <useUnlimitedThreads>true</useUnlimitedThreads> 
+				</configuration> -->
+
+
 
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId> 
 				<version>3.0.0-M3</version> <executions> <execution> <goals> <goal>integration-test</goal> 
@@ -174,4 +161,7 @@
 
 		</plugins>
 	</build>
+	
+	
+	
 </project>

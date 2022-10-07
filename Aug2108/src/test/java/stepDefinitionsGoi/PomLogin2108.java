@@ -2,6 +2,8 @@ package stepDefinitionsGoi;
 
 
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ import driverFactory.DriverFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pagesGoi.Login2108;
 
@@ -21,14 +24,19 @@ public class PomLogin2108 {
 
 
 	@Given ("^User is on Login Page$")
-	public void loginnPg() {
+	public void loginnPg() throws InterruptedException {
 
 
 		DriverFactory.getDriver().navigate().to("https://goinfinity.beyond360test.com/Account/Login");
+		
+		Thread.sleep(500);
+		String title1=		DriverFactory.getDriver().getTitle();
+
+		assertEquals("Login", title1);
 
 	}
 
-
+/*
 	@When ("^User enters correct credentials$")
 	public void usrCred(DataTable dataTable) {
 
@@ -46,26 +54,25 @@ public class PomLogin2108 {
 
 	@And ("^Clicks on Login button$")
 	public void butonLogin() throws InterruptedException {
-		login.clikButon();
+		//login.clikButon();
 
-		Thread.sleep(5000);
+		Thread.sleep(500);
 	}
 
 
-	/*
-		@Then ("^Then landing page title should be - Home$")
-		public void hompage() throws InterruptedException {
 
-			String Title= login.getPageTitle();
-			System.out.println("page title is: "  +Title);
+	@Then ("^Then landing page title should be - Home$")
+	public void hompage() throws InterruptedException {
+
+		Thread.sleep(500);
+		String title1=		DriverFactory.getDriver().getTitle();
+
+		assertEquals("Login", title1);
 
 
-		Assert.assertTrue(Title.contains("Home"));
+	}
 
-
-		}
-	 */
-
+*/
 
 
 
