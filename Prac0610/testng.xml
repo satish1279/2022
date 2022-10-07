@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="TestNGListenerSuite">
+
+<listeners>
+<listener class-name = "testpkg.Listners" />
+</listeners>
+
+<test name="PracTest">
+
+<classes>
+
+<class name= "testpkg.PracTest">
+
+<methods>
+<include name= "method1Name"/>
+<include name= "method2Name"/>
+</methods>
+
+</class>
+
+
+</classes>
+
+</test>
+
+</suite>
