@@ -42,9 +42,9 @@ public class PomLogin0510 extends BaseClass0510 {
 	public String [][] getData() throws IOException{
 
 
-		String Path= "./src/test/resources/DataFile/BDD Data.xlsx";
+		
 
-		DataProvider0510 dataProvider = new DataProvider0510(Path);
+		DataProvider0510 dataProvider = new DataProvider0510();
 
 		int totalRows=dataProvider.getRowCount("testData");
 		int totalCols= dataProvider.getCellCount("testData", 1);

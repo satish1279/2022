@@ -1,6 +1,7 @@
 package util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -18,23 +19,28 @@ public class DataProvider0510 {
 
 	public XSSFRow row;
 	public XSSFCell cell;
+	String Path;
 
-	String Path=null;
+	
 
-
-	 public DataProvider0510(String Path){
-
-		this.Path=Path;
-	}
-
-	public int getRowCount(String sheetName) throws IOException {
-
-
+	public void fileRead() throws IOException {
+		String Path= "./src/test/resources/DataFile/BDD Data.xlsx";
+		
+		
 		fis= new FileInputStream(Path);
 		wb= new XSSFWorkbook(fis);
 		sheet=wb.getSheet("testData");
 
-		
+	}
+	
+	
+	
+	
+	
+	public int getRowCount(String sheetName) throws IOException {
+
+		fileRead();
+
 		int rowCount= sheet.getLastRowNum();
 
 		wb.close();
@@ -49,13 +55,11 @@ public class DataProvider0510 {
 	public int getCellCount(String sheetName, int rownum) throws IOException {
 
 
-		fis= new FileInputStream(Path);
-		wb= new XSSFWorkbook(fis);
-		sheet=wb.getSheet("testData");
-		
+		fileRead();
+
 		row= sheet.getRow(rownum);
-		
-		
+
+
 		int cellCount= row.getLastCellNum();
 
 		wb.close();
@@ -69,9 +73,8 @@ public class DataProvider0510 {
 
 	public String getCellData(String sheetName, int rownum, int colnum) throws IOException {
 
-		fis= new FileInputStream(Path);
-		wb= new XSSFWorkbook(fis);
-		sheet=wb.getSheet("testData");
+		fileRead();
+
 		row= sheet.getRow(rownum);
 		cell= row.getCell(colnum);
 
@@ -79,7 +82,7 @@ public class DataProvider0510 {
 		DataFormatter formatter= new DataFormatter();
 		String cellData= formatter.formatCellValue(cell);
 
-		
+
 		wb.close();
 		fis.close();
 
