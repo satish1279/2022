@@ -16,14 +16,14 @@ public class PomHome2209 extends Base{
 
 		Login2209 login = new Login2209();
 		login.LoginPg(prop.getProperty("Username"), prop.getProperty("Password"));
-		
+
 		Thread.sleep(5000);
 
 	}
 
 	@Given ("^user is on Homepage$")
 	public void home0001() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	@When ("^Clicks on Recognize link$")
@@ -47,7 +47,7 @@ public class PomHome2209 extends Base{
 	public void clickWellness() throws InterruptedException {
 		Homepage2209 hmpg = new Homepage2209();
 		hmpg.click_Wellness();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 	}
 
@@ -55,7 +55,7 @@ public class PomHome2209 extends Base{
 	public void clickSurvey() throws InterruptedException {
 		Homepage2209 hmpg = new Homepage2209();
 		hmpg.click_Survey();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 	}
 
@@ -63,7 +63,7 @@ public class PomHome2209 extends Base{
 	public void clickJobs() throws InterruptedException {
 		Homepage2209 hmpg = new Homepage2209();
 		hmpg.click_Jobs();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 	}
 
@@ -90,7 +90,7 @@ public class PomHome2209 extends Base{
 	public void clickRedeem() throws InterruptedException {
 		Homepage2209 hmpg = new Homepage2209();
 		hmpg.click_Redeem();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	}
 

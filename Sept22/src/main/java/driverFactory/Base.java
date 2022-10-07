@@ -46,7 +46,7 @@ public class Base {
 	
 	@BeforeMethod
 
-	public static void setUp() {
+	public static void setUp() throws InterruptedException {
 		
 		String browserName = prop.getProperty("browser");
 
@@ -72,8 +72,9 @@ public class Base {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		driver.navigate().to(prop.getProperty("url"));
-
+		
 	}
+	
 	
 	
 
