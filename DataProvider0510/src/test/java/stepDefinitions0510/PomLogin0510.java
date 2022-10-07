@@ -32,12 +32,12 @@ public class PomLogin0510 extends BaseClass0510 {
 		Login0510 login = new Login0510();
 		login.LoginPgActions(Username, Password);
 
-		
-		
-		
-		
 	}
 
+	
+	
+	
+	
 	@DataProvider(name="LoginDataFromExcel")
 	public String [][] getData() throws IOException{
 
@@ -47,13 +47,13 @@ public class PomLogin0510 extends BaseClass0510 {
 		DataProvider0510 dataProvider = new DataProvider0510();
 
 		int totalRows=dataProvider.getRowCount("testData");
-		int totalCols= dataProvider.getCellCount("testData", 1);
+		int totalCells= dataProvider.getCellCount("testData", 1);
 
-		String loginData[][]= new String[totalRows][totalCols];
+		String loginData[][]= new String[totalRows][totalCells];
 
 		for (int i=1; i<totalRows; i++) {
 
-			for (int j=0; j<totalCols; j++) {
+			for (int j=0; j<totalCells; j++) {
 				loginData[i-1][j]= dataProvider.getCellData("testData", i, j);
 			}
 		}

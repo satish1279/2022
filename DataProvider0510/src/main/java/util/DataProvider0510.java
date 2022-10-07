@@ -71,12 +71,12 @@ public class DataProvider0510 {
 
 
 
-	public String getCellData(String sheetName, int rownum, int colnum) throws IOException {
+	public String getCellData(String sheetName, int rownum, int cellnum) throws IOException {
 
 		fileRead();
 
 		row= sheet.getRow(rownum);
-		cell= row.getCell(colnum);
+		cell= row.getCell(cellnum);
 
 
 		DataFormatter formatter= new DataFormatter();
