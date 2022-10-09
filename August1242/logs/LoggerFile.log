@@ -1,0 +1,4 @@
+[INFO ] 2022-10-08 18:31:21.186 [main] POMLoginPage1242 - this is for test
+[FATAL] 2022-10-08 18:31:21.190 [main] POMLoginPage1242 - this is fatal
+[ERROR] 2022-10-08 18:31:21.190 [main] POMLoginPage1242 - this is error
+[INFO ] 2022-10-08 18:31:29.296 [main] POMLoginPage1242 - user is on login page
