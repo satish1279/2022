@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import hooks.Screenshots0910;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -25,6 +26,7 @@ public class PomLoginCumAllPages0910 {
 	static WebDriver driver =null;
 
 	PagesElements0910 pages;
+	Screenshots0910 takeSS;
 
 
 
@@ -40,10 +42,7 @@ public class PomLoginCumAllPages0910 {
 
 		driver.manage().window().maximize();
 
-		driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-
-
-
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 
@@ -52,10 +51,7 @@ public class PomLoginCumAllPages0910 {
 
 	public static void tearDown() throws InterruptedException {
 
-
-		Thread.sleep(10000);
-
-
+		Thread.sleep(1000);
 		driver.close();
 	}
 
@@ -65,17 +61,19 @@ public class PomLoginCumAllPages0910 {
 
 	public void beforeHook() throws IOException, InterruptedException {
 
-		Thread.sleep(1000);
-
-		System.out.println("test");
+		Thread.sleep(500);
 	}
+
+
 
 	@AfterStep
 
 	public void afterHook() throws IOException, InterruptedException {
 
-		//Screenshots0910.takeScreenshot();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+
+		takeSS = new Screenshots0910(driver);
+		takeSS.takeScreenshot();
 
 	}
 
@@ -87,115 +85,146 @@ public class PomLoginCumAllPages0910 {
 	public void loginPage() throws IOException {
 
 		driver.navigate().to("https://goinfinity.beyond360apps.com/");
-
-
 	}
-
 
 
 	@When ("^User is logged in after entering the correct credentials$")
 	public void enterUsername() {
 
-
 		pages =  new PagesElements0910(driver);
-
 
 		pages.entrUsernam();
 		pages.entrPassword();
 		pages.clikButon();
-
 	}
 
-
-
-	@And ("^Clicks on Login button$")
-	public void homePage() throws InterruptedException {
-		
-		Thread.sleep(1000);
-
-	}
 
 	//	=========	Recognize Page  ========
-	@When ("^Clicks on Recognize link$")
+	@And ("^Clicks on Recognize link$")
 	public void recogLink() throws InterruptedException {
+		//System.out.println("test");
+		pages.clickRecognize();
 
-		pages.clikRecognize();
 	}
 
 
 	//	=========	Skill Insight Page  ========
-	@And ("^Clicks on Skill Insight link$")
+	@When ("^Clicks on Skill Insight link$")
 	public void skillinsightLink() throws InterruptedException {
-
-		pages.clikSkillInsight();
+		//System.out.println("test");
+		pages.clickSkillInsight();
 	}
 
 
 	//	=========	 Wellness  Page  ========
-	@When ("^Clicks on Wellness link$")
+	@And ("^Clicks on Wellness link$")
 	public void WellnessLink() throws InterruptedException {
-
-		pages.clikWellness();
+		//System.out.println("test");
+		pages.clickWellness();
 	}
 
 
 
 	//=========	 Survey  Page  ========
-	@And ("^Clicks on Survey link$")
+	@When ("^Clicks on Survey link$")
 	public void SurveyLink() throws InterruptedException {
-
-		pages.clikSurvey();
+		//System.out.println("test");
+		pages.clickSurvey();
 	}
 
 
 
 	//	=========	 My Summary  Page  ========
-	@When ("^Clicks on My Summary link$")
+	@And ("^Clicks on My Summary link$")
 	public void MySummaryLink() throws InterruptedException {
+		//System.out.println("test");
+		pages.clickMySummary();
 
-		pages.clikMySummary();
+	}
+
+	//	=========	 Redeem Page  ========
+	@When ("^Clicks on Redeem link$")
+	public void RedeemLink() throws InterruptedException {
+		System.out.println("test");
+		//pages.clickRedeem();
+	}
+
+
+	//	=========	 Dashboard & Reports Page  ========
+	@And ("^Clicks on Dashboard link$")
+	public void DashboardLink() throws InterruptedException {
+		System.out.println("test");
+		pages.clickDashboard();	
+	}
+
+
+	@When ("^Clicks on Reports tab$")
+	public void ReportTab() throws InterruptedException {
+		//System.out.println("test");
+		pages.clickReports();
+	}
+
+	@And ("^Clicks on Budget Head Report option from Select Report dropdown$")
+	public void clickBudgetHeadReport() throws InterruptedException {
+
+
+		pages.clickSelectReportDropdown();
+		Thread.sleep(1000);
+		pages.clickBudgetHeadReport();
 		
 	}
 
 
+	@When ("^Clicks on Recognitions Report option from Select Report dropdown$")
+	public void clickRecognitionsReport() throws InterruptedException {
 
-	//	=========	 Dashboard Page  ========
-	@And ("^Clicks on Dashboard link$")
-	public void DashboardLink() throws InterruptedException {
-
-		pages.clikDashboard();
+		pages.clickSelectReportDropdown();
+		Thread.sleep(1000);
+		pages.clickRecognitionsReport();
+		
 	}
 
-	@When ("^Clicks on Reports tab$")
-	public void ReportTab() throws InterruptedException {
+	@And ("^Clicks on Redemption Report option from Select Report dropdown$")
+	public void clickRedemptionReport() throws InterruptedException {
 
-		pages.clikReports();
+		pages.clickSelectReportDropdown();
+		Thread.sleep(1000);
+		pages.clickRedemptionReport();
+		
+	}
+
+	@When ("^Clicks on User Login Report option from Select Report dropdown$")
+	public void clickUserLoginReport() throws InterruptedException {
+
+		pages.clickSelectReportDropdown();
+		Thread.sleep(1000);
+		pages.clickUserLoginReport();
+		
 	}
 
 
+	@And ("^Clicks on Data Visualization tab$")
+	public void dataVisualizationTab() throws InterruptedException {
 
-	//	=========	 Redeem Page  ========
-	@And ("^Clicks on Redeem link$")
-	public void RedeemLink() throws InterruptedException {
+		//System.out.println("test");
 
-		pages.clikRedeem();
+		pages.clickVisualization();
+		
 	}
-
-
 
 
 	//=========	 Logout cum Login Page  ========
 
 	@When ("^Clicks on LogOut link$")
 	public void LogoutLink() throws InterruptedException {
-		
-		pages.clikUserprofile();
+
+		pages.clickUserprofile();
 		Thread.sleep(2000);
-		
-		pages.cliklogOut();
+
+		pages.clicklogOut();
 		Thread.sleep(2000);
-		
-		pages.clikOkBtn();
+
+		pages.clickOkBtn();
 	}
 
 
@@ -203,7 +232,6 @@ public class PomLoginCumAllPages0910 {
 
 	@Then ("^User is navigated to first page$")
 	public void RedeemPG()  throws InterruptedException {
-
 
 		System.out.println("this is login page");
 
