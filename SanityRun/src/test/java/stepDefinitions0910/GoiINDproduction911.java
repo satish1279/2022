@@ -1,13 +1,19 @@
 package stepDefinitions0910;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.logging.log4j.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import hooks.Screenshots0910;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -20,22 +26,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.PagesElements0910;
 
 
-public class PomLoginCumAllPages0910 {
+public class GoiINDproduction911 {
 
 
 
-	private static final Logger logger= LogManager.getLogger("PomLoginCumAllPages0910");
+	private static final Logger logger= LogManager.getLogger("GoiINDproduction911");
 	static WebDriver driver =null;
 
 	
-
-
-	
 	PagesElements0910 pages;
-	Screenshots0910 takeSS;
-	
-	
-	
+		
 
 	@Before
 
@@ -49,6 +49,8 @@ public class PomLoginCumAllPages0910 {
 		driver.manage().window().maximize();
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		driver.navigate().to("https://goinfinity.beyond360tech.com/");
 
 		logger.info("Browser Started");
 	}
@@ -77,12 +79,16 @@ public class PomLoginCumAllPages0910 {
 
 	@AfterStep
 
-	public void afterHook() throws IOException, InterruptedException {
-
+	public void takeScreenshot() throws IOException, InterruptedException {
 		Thread.sleep(3000);
 
-		takeSS = new Screenshots0910(driver);
-		takeSS.takeScreenshot();
+		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
+
+		TakesScreenshot ts= (TakesScreenshot)driver;
+
+		File source= ts.getScreenshotAs(OutputType.FILE);
+		File dest= new File("E:/Satish Jaiswal/DailySanity2022/Production-IND/" + driver.getTitle() +" " + timestamp + ".png");
+		FileUtils.copyFile(source,dest);
 		logger.info("Screenshot of taken for the page - " + driver.getTitle());
 
 	}
@@ -91,15 +97,15 @@ public class PomLoginCumAllPages0910 {
 
 
 
-	@Given ("^User is on Login page$")
-	public void loginPage() throws IOException {
+	@Given ("^User is on Login page wrt Ind_Production$")
+	public void loginPage() throws IOException, InterruptedException {
 
-		driver.navigate().to("https://goinfinity.beyond360apps.com/");
+		Thread.sleep(500);
 		logger.info("This is login page");
 	}
 
 
-	@When ("^User is logged in after entering the correct credentials$")
+	@When ("^User is logged in after entering the correct credentials wrt Ind_Production$")
 	public void enterUsername() {
 
 		pages =  new PagesElements0910(driver);
@@ -111,7 +117,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//	=========	Recognize Page  ========
-	@And ("^Clicks on Recognize link$")
+	@And ("^Clicks on Recognize link wrt Ind_Production$")
 	public void recogLink() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickRecognize();
@@ -121,7 +127,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//	=========	Skill Insight Page  ========
-	@When ("^Clicks on Skill Insight link$")
+	@When ("^Clicks on Skill Insight link wrt Ind_Production$")
 	public void skillinsightLink() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickSkillInsight();
@@ -130,7 +136,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//	=========	 Wellness  Page  ========
-	@And ("^Clicks on Wellness link$")
+	@And ("^Clicks on Wellness link wrt Ind_Production$")
 	public void WellnessLink() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickWellness();
@@ -140,7 +146,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//=========	 Survey  Page  ========
-	@When ("^Clicks on Survey link$")
+	@When ("^Clicks on Survey link wrt Ind_Production$")
 	public void SurveyLink() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickSurvey();
@@ -150,7 +156,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//	=========	 My Summary  Page  ========
-	@And ("^Clicks on My Summary link$")
+	@And ("^Clicks on My Summary link wrt Ind_Production$")
 	public void MySummaryLink() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickMySummary();
@@ -159,7 +165,7 @@ public class PomLoginCumAllPages0910 {
 	}
 
 	//	=========	 Redeem Page  ========
-	@When ("^Clicks on Redeem link$")
+	@When ("^Clicks on Redeem link wrt Ind_Production$")
 	public void RedeemLink() throws InterruptedException {
 		System.out.println("test");
 		//pages.clickRedeem();
@@ -168,7 +174,7 @@ public class PomLoginCumAllPages0910 {
 
 
 	//	=========	 Dashboard & Reports Page  ========
-	@And ("^Clicks on Dashboard link$")
+	@And ("^Clicks on Dashboard link wrt Ind_Production$")
 	public void DashboardLink() throws InterruptedException {
 		System.out.println("test");
 		pages.clickDashboard();	
@@ -176,14 +182,14 @@ public class PomLoginCumAllPages0910 {
 	}
 
 
-	@When ("^Clicks on Reports tab$")
+	@When ("^Clicks on Reports tab wrt Ind_Production$")
 	public void ReportTab() throws InterruptedException {
 		//System.out.println("test");
 		pages.clickReports();
 		logger.info("This is Reports page");
 	}
 
-	@And ("^Clicks on Budget Head Report option from Select Report dropdown$")
+	@And ("^Clicks on Budget Head Report option from Select Report dropdown wrt Ind_Production$")
 	public void clickBudgetHeadReport() throws InterruptedException {
 
 
@@ -195,7 +201,7 @@ public class PomLoginCumAllPages0910 {
 	}
 
 
-	@When ("^Clicks on Recognitions Report option from Select Report dropdown$")
+	@When ("^Clicks on Recognitions Report option from Select Report dropdown wrt Ind_Production$")
 	public void clickRecognitionsReport() throws InterruptedException {
 
 		pages.clickSelectReportDropdown();
@@ -205,7 +211,7 @@ public class PomLoginCumAllPages0910 {
 
 	}
 
-	@And ("^Clicks on Redemption Report option from Select Report dropdown$")
+	@And ("^Clicks on Redemption Report option from Select Report dropdown wrt Ind_Production$")
 	public void clickRedemptionReport() throws InterruptedException {
 
 		pages.clickSelectReportDropdown();
@@ -215,7 +221,7 @@ public class PomLoginCumAllPages0910 {
 
 	}
 
-	@When ("^Clicks on User Login Report option from Select Report dropdown$")
+	@When ("^Clicks on User Login Report option from Select Report dropdown wrt Ind_Production$")
 	public void clickUserLoginReport() throws InterruptedException {
 
 		pages.clickSelectReportDropdown();
@@ -226,7 +232,7 @@ public class PomLoginCumAllPages0910 {
 	}
 
 
-	@And ("^Clicks on Data Visualization tab$")
+	@And ("^Clicks on Data Visualization tab wrt Ind_Production$")
 	public void dataVisualizationTab() throws InterruptedException {
 
 		//System.out.println("test");
@@ -239,7 +245,7 @@ public class PomLoginCumAllPages0910 {
 
 	//=========	 Logout cum Login Page  ========
 
-	@When ("^Clicks on LogOut link$")
+	@When ("^Clicks on LogOut link wrt Ind_Production$")
 	public void LogoutLink() throws InterruptedException {
 
 		pages.clickUserprofile();
@@ -256,7 +262,7 @@ public class PomLoginCumAllPages0910 {
 
 
 
-	@Then ("^User is navigated to first page$")
+	@Then ("^User is navigated to first page wrt Ind_Production$")
 	public void RedeemPG()  throws InterruptedException {
 
 		System.out.println("this is login page");
