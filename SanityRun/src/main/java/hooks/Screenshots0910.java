@@ -8,14 +8,12 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
-import driverfactory0910.BaseClass0910;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.BeforeStep;
+public class Screenshots0910 {
 
-public class Screenshots0910 extends BaseClass0910{
-
-
+	public static  WebDriver driver;
+	
 	static String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
 
 
