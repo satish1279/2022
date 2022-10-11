@@ -13,6 +13,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
@@ -82,7 +83,7 @@ public class GoiStaging0910 {
 	@AfterStep
 
 	public void takeScreenshot() throws IOException, InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
 
@@ -105,13 +106,15 @@ public class GoiStaging0910 {
 
 
 	@When ("^User is logged in after entering the correct credentials wrt Staging env$")
-	public void enterUsername() {
+	public void enterUsername() throws InterruptedException {
 
 		pages =  new PagesElements0910(driver);
 
 		pages.entrUsernam();
 		pages.entrPassword();
-		//pages.clikButon();
+		pages.clikButon();
+		
+		Thread.sleep(1500);
 	}
 
 
@@ -128,8 +131,8 @@ public class GoiStaging0910 {
 	//	=========	Skill Insight Page  ========
 	@When ("^Clicks on Skill Insight link wrt Staging env$")
 	public void skillinsightLink() throws InterruptedException {
-		//System.out.println("test");
-		pages.clickSkillInsight();
+		System.out.println("test");
+		//pages.clickSkillInsight();
 		logger.info("This is Feedback page");
 	}
 
@@ -137,8 +140,8 @@ public class GoiStaging0910 {
 	//	=========	 Wellness  Page  ========
 	@And ("^Clicks on Wellness link wrt Staging env$")
 	public void WellnessLink() throws InterruptedException {
-		//System.out.println("test");
-		pages.clickWellness();
+		System.out.println("test");
+		//pages.clickWellness();
 		logger.info("This is Wellness page");
 	}
 
@@ -147,8 +150,8 @@ public class GoiStaging0910 {
 	//=========	 Survey  Page  ========
 	@When ("^Clicks on Survey link wrt Staging env$")
 	public void SurveyLink() throws InterruptedException {
-		//System.out.println("test");
-		pages.clickSurvey();
+		System.out.println("test");
+		//pages.clickSurvey();
 		logger.info("This is Survey page");
 	}
 
@@ -157,8 +160,8 @@ public class GoiStaging0910 {
 	//	=========	 My Summary  Page  ========
 	@And ("^Clicks on My Summary link wrt Staging env$")
 	public void MySummaryLink() throws InterruptedException {
-		//System.out.println("test");
-		pages.clickMySummary();
+		System.out.println("test");
+		//pages.clickMySummary();
 		logger.info("This is My Summary page");
 
 	}
@@ -176,25 +179,25 @@ public class GoiStaging0910 {
 	@And ("^Clicks on Dashboard link wrt Staging env$")
 	public void DashboardLink() throws InterruptedException {
 		System.out.println("test");
-		pages.clickDashboard();	
+		//pages.clickDashboard();	
 		logger.info("This is Dashboard page");
 	}
 
 
 	@When ("^Clicks on Reports tab wrt Staging env$")
 	public void ReportTab() throws InterruptedException {
-		//System.out.println("test");
-		pages.clickReports();
+		System.out.println("test");
+		//pages.clickReports();
 		logger.info("This is Reports page");
 	}
 
 	@And ("^Clicks on Budget Head Report option from Select Report dropdown wrt Staging env$")
 	public void clickBudgetHeadReport() throws InterruptedException {
 
-
-		pages.clickSelectReportDropdown();
-		Thread.sleep(1000);
-		pages.clickBudgetHeadReport();
+		System.out.println("test");
+		//pages.clickSelectReportDropdown();
+		//Thread.sleep(1000);
+		//pages.clickBudgetHeadReport();
 		logger.info("This is Budget Head Report page");
 
 	}
@@ -203,29 +206,30 @@ public class GoiStaging0910 {
 	@When ("^Clicks on Recognitions Report option from Select Report dropdown wrt Staging env$")
 	public void clickRecognitionsReport() throws InterruptedException {
 
-		pages.clickSelectReportDropdown();
-		Thread.sleep(1000);
-		pages.clickRecognitionsReport();
+		System.out.println("test");
+		//pages.clickSelectReportDropdown();
+		//Thread.sleep(1000);
+		//pages.clickRecognitionsReport();
 		logger.info("This is Recognitions Report page");
 
 	}
 
 	@And ("^Clicks on Redemption Report option from Select Report dropdown wrt Staging env$")
 	public void clickRedemptionReport() throws InterruptedException {
-
-		pages.clickSelectReportDropdown();
-		Thread.sleep(1000);
-		pages.clickRedemptionReport();
+		System.out.println("test");
+		//pages.clickSelectReportDropdown();
+		//Thread.sleep(1000);
+		//pages.clickRedemptionReport();
 		logger.info("This is Redemption Report page");
 
 	}
 
 	@When ("^Clicks on User Login Report option from Select Report dropdown wrt Staging env$")
 	public void clickUserLoginReport() throws InterruptedException {
-
-		pages.clickSelectReportDropdown();
-		Thread.sleep(1000);
-		pages.clickUserLoginReport();
+		System.out.println("test");
+		//pages.clickSelectReportDropdown();
+		//Thread.sleep(1000);
+		//pages.clickUserLoginReport();
 		logger.info("This is User Login Report page");
 
 	}
@@ -234,9 +238,9 @@ public class GoiStaging0910 {
 	@And ("^Clicks on Data Visualization tab wrt Staging env$")
 	public void dataVisualizationTab() throws InterruptedException {
 
-		//System.out.println("test");
+		System.out.println("test");
 
-		pages.clickVisualization();
+		//pages.clickVisualization();
 		logger.info("This is Data Visualization page");
 
 	}

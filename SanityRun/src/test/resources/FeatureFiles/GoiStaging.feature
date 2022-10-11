@@ -1,3 +1,4 @@
+@GoiStaging
 Feature: To test all the pages on Goi Staging environment
 
   Scenario: To test all the pages on Goi Staging environment
